@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+#header{
+    background: url('./assets/source.gif') no-repeat;
+    background-size: cover;
+}
