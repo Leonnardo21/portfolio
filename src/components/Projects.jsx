@@ -1,5 +1,9 @@
 import { ExternalLink, Globe, Server, Github } from "lucide-react";
 
+const getImageUrl = (name) => {
+    return new URL(`../assets/projects/${name}`, import.meta.url).href;
+};
+
 export default function Projects() {
     const projects = [
         {
@@ -7,7 +11,8 @@ export default function Projects() {
             description: "API robusta para gerenciamento completo de estoque com autenticação JWT, controle de usuários e relatórios avançados.",
             technologies: ['C#', ".NET Core", "SQL Server", "JWT"],
             repo: "https://github.com/Leonnardo21/ProdManagerAPI",
-            demo: "#",
+            image: "",
+            demo: "",
             icon: Server,
             category: "Backend",
             status: "Concluído"
@@ -17,6 +22,7 @@ export default function Projects() {
             description: "Landing page moderna e responsiva para cafeteria com animações suaves, formulário de contato e integração com redes sociais.",
             technologies: ["HTML5", "CSS3", "JavaScript"],
             repo: "https://github.com/Leonnardo21/cafe-dourado-landing-page",
+            image: "cafe-dourado.png", 
             demo: "https://cafe-dourado-landing-page.vercel.app/",
             icon: Globe,
             category: "Frontend",
@@ -27,6 +33,7 @@ export default function Projects() {
             description: "Aplicação React para consulta de CEP com histórico de pesquisas, interface intuitiva e validação em tempo real.",
             technologies: ['React', "Vite", "Tailwind CSS"],
             repo: "https://github.com/Leonnardo21/busca-cep",
+            image: "busca-cep.png", 
             demo: "https://busca-cep-jade.vercel.app/",
             icon: Globe,
             category: "Web App",
@@ -37,6 +44,7 @@ export default function Projects() {
             description: "Este é um aplicativo de consulta de clima desenvolvido em React. Ele permite que os usuários busquem informações meteorológicas de diferentes cidades utilizando a API do WeatherAPI.",
             technologies: ['React', "Vite", "Tailwind CSS"],
             repo: "https://github.com/Leonnardo21/Weather-App",
+            image: "consulta-clima.png", 
             demo: "https://weather-app-three-pied-tjjh1vl8vg.vercel.app/",
             icon: Globe,
             category: "Web App",
@@ -47,6 +55,7 @@ export default function Projects() {
             description: "Landing Page para um empresa de Assessoria Acadêmica",
             technologies: ['React', "Vite", "Tailwind CSS"],
             repo: "https://github.com/Leonnardo21/ec-assessoria-academica-lp",
+            image: "ecassessoria.png", 
             demo: "https://ecassessoriaacademica.com.br/",
             icon: Globe,
             category: "Frontend",
@@ -57,6 +66,7 @@ export default function Projects() {
             description: "É uma aplicação simples e intuitiva para gerenciamento de tarefas, com autenticação, persistência de dados em tempo real e uma interface moderna.",
             technologies: ['React', "Vite", "Tailwind CSS"],
             repo: "https://github.com/Leonnardo21/todo-firebase",
+            image: "", 
             demo: "#",
             icon: Globe,
             category: "Web App",
@@ -101,17 +111,32 @@ export default function Projects() {
                         return (
                             <div 
                                 key={index} 
-                                className="group relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 border border-gray-700 hover:border-red-500/50 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-red-500/20"
+                                className="group relative flex flex-col bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden border border-gray-700 hover:border-red-500/50 transform hover:scale-105 hover:-translate-y-2 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-red-500/20"
                             >
+                                {/* Imagem do Projeto */}
+                                <div className="relative h-48 w-full overflow-hidden bg-gray-800">
+                                    {project.image ? (
+                                        <>
+                                            <img src={getImageUrl(project.image)} alt={project.title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110" />
+                                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                                        </>
+                                    ) : (
+                                        <div className="absolute inset-0 flex items-center justify-center p-4 bg-gradient-to-br from-gray-700 to-gray-800">
+                                            <h4 className="text-xl font-bold text-white text-center">{project.title}</h4>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="flex flex-col flex-grow p-6">
                                 {/* Status badge */}
-                                <div className="absolute top-4 right-4">
+                                <div className="absolute top-4 right-4 z-10">
                                     <span className={`${getStatusColor(project.status)} text-white text-xs px-2 py-1 rounded-full font-medium`}>
                                         {project.status}
                                     </span>
                                 </div>
 
                                 {/* Ícone e categoria */}
-                                <div className="flex items-center mb-4">
+                                <div className="flex items-center mb-4 mt-2">
                                     <div className="bg-red-500/20 p-3 rounded-lg mr-3 group-hover:bg-red-500/30 transition-colors">
                                         <IconComponent size={24} className="text-red-400" />
                                     </div>
@@ -139,7 +164,7 @@ export default function Projects() {
                                 </div>
                                 
                                 {/* Links */}
-                                <div className="flex space-x-4">
+                                <div className="flex space-x-4 mt-auto pt-4">
                                     <a 
                                         href={project.repo} 
                                         target="_blank"
@@ -148,14 +173,17 @@ export default function Projects() {
                                         <Github size={18} className="mr-2 group-hover/link:rotate-12 transition-transform" />
                                         <span className="font-medium">Código</span>
                                     </a>
-                                    <a 
-                                        href={project.demo} 
-                                        target="_blank"
-                                        className="group/link flex items-center text-gray-300 hover:text-white transition-colors bg-red-600/20 hover:bg-red-600/30 px-4 py-2 rounded-lg border border-red-600/30"
-                                    >
-                                        <ExternalLink size={18} className="mr-2 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
-                                        <span className="font-medium">Demo</span>
-                                    </a>
+                                    {project.demo && project.demo !== "#" && (
+                                        <a
+                                            href={project.demo}
+                                            target="_blank"
+                                            className="group/link flex items-center text-gray-300 hover:text-white transition-colors bg-red-600/20 hover:bg-red-600/30 px-4 py-2 rounded-lg border border-red-600/30"
+                                        >
+                                            <ExternalLink size={18} className="mr-2 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                                            <span className="font-medium">Demo</span>
+                                        </a>
+                                    )}
+                                </div>
                                 </div>
 
                                 {/* Efeito de hover decorativo */}

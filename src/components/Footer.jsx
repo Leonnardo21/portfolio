@@ -5,6 +5,16 @@ export default function Footer() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    };
+
     const socialLinks = [
         {
             name: "GitHub",
@@ -30,10 +40,10 @@ export default function Footer() {
     ];
 
     const quickLinks = [
-        { name: "Sobre", href: "#about" },
-        { name: "Skills", href: "#skills" },
-        { name: "Projetos", href: "#projects" },
-        { name: "Contato", href: "#contact" }
+        { name: "Sobre", id: "about" },
+        { name: "Skills", id: "skills" },
+        { name: "Projetos", id: "projects" },
+        { name: "Contato", id: "contact" }
     ];
 
     return (
@@ -75,12 +85,12 @@ export default function Footer() {
                             <ul className="space-y-2">
                                 {quickLinks.map((link, index) => (
                                     <li key={index}>
-                                        <a 
-                                            href={link.href} 
-                                            className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform inline-block"
+                                        <button
+                                            onClick={() => scrollToSection(link.id)}
+                                            className="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform inline-block text-left cursor-pointer"
                                         >
                                             {link.name}
-                                        </a>
+                                        </button>
                                     </li>
                                 ))}
                             </ul>

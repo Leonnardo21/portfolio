@@ -30,7 +30,7 @@ export default function About() {
         <section 
             ref={sectionRef}
             id="about" 
-            className="min-h-screen py-20 bg-gray-800 relative overflow-hidden"
+            className="py-20 lg:py-32 bg-gray-800 relative overflow-hidden"
         >
             {/* Elementos decorativos de fundo */}
             <div className="absolute inset-0 opacity-5">
@@ -51,10 +51,10 @@ export default function About() {
                 </div>
 
                 {/* Conteúdo principal */}
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     {/* Coluna de texto */}
-                    <div className={`space-y-6 transition-all duration-1000 delay-200 ${
-                        isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+                    <div className={`space-y-6 transition-all duration-1000 delay-200 text-center lg:text-left ${
+                        isVisible ? 'opacity-100' : 'opacity-0'
                     }`}>
                         {/* Introdução */}
                         <div className="space-y-4">
@@ -74,12 +74,13 @@ export default function About() {
                         </div>
 
                         {/* Links sociais e ações */}
-                        <div className="flex flex-wrap items-center gap-4 pt-6">
+                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-6">
                             <div className="flex space-x-4">
                                 <a 
                                     href="https://github.com/leonnardo21" 
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    aria-label="Visitar meu perfil no GitHub"
                                     className="group p-3 bg-gray-700 hover:bg-gray-600 rounded-lg transition-all duration-300 transform hover:scale-105"
                                 >
                                     <Github size={24} className="text-white group-hover:text-red-400 transition-colors" />
@@ -88,6 +89,7 @@ export default function About() {
                                     href="https://www.linkedin.com/in/leonardo-rodrigues-07a169172/" 
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    aria-label="Visitar meu perfil no LinkedIn"
                                     className="group p-3 bg-gray-700 hover:bg-gray-600 rounded-lg transition-all duration-300 transform hover:scale-105"
                                 >
                                     <Linkedin size={24} className="text-white group-hover:text-red-400 transition-colors" />
@@ -96,23 +98,19 @@ export default function About() {
                                     href="https://www.instagram.com/leonnardo.dev21/" 
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    aria-label="Visitar meu perfil no Instagram"
                                     className="group p-3 bg-gray-700 hover:bg-gray-600 rounded-lg transition-all duration-300 transform hover:scale-105"
                                 >
                                     <Instagram size={24} className="text-white group-hover:text-red-400 transition-colors" />
                                 </a>
                                 
                             </div>
-                            
-                            {/* <button className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
-                                <Download size={18} />
-                                Download CV
-                            </button> */}
                         </div>
                     </div>
 
                     {/* Coluna da imagem */}
-                    <div className={`flex justify-center lg:justify-end transition-all duration-1000 delay-400 ${
-                        isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+                    <div className={`flex justify-center transition-all duration-1000 delay-400 ${
+                        isVisible ? 'opacity-100' : 'opacity-0'
                     }`}>
                         <div className="relative group">
                             {/* Container da imagem com efeitos */}

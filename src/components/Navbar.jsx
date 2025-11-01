@@ -100,7 +100,7 @@ export default function Navbar() {
                             <button
                                 key={link.id}
                                 onClick={() => handleLinkClick(link.id)}
-                                className={`relative text-white transition-all duration-300 hover:text-red-400 cursor-pointer ${
+                                className={`relative rounded-md text-white transition-all duration-300 hover:text-red-400 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400 ${
                                     activeSection === link.id ? 'text-red-400' : ''
                                 }`}
                             >
@@ -115,7 +115,7 @@ export default function Navbar() {
 
                     {/* Menu Mobile Button */}
                     <button 
-                        className="md:hidden text-white hover:text-red-400 transition-colors p-2"
+                        className="md:hidden rounded-md text-white hover:text-red-400 transition-colors p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         aria-label="Toggle menu"
                     >

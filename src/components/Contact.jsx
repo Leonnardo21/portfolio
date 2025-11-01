@@ -46,9 +46,9 @@ export default function Contact() {
                     </p>
                 </div>
 
-                <div>
+                <div className="max-w-3xl mx-auto">
                     {/* Informações de contato */}
-                    <div className="lg:col-span-2 space-y-8">
+                    <div className="space-y-8">
                         <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
                             <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
                                 <MessageCircle className="mr-3 text-red-400" />
@@ -86,106 +86,6 @@ export default function Contact() {
                             </div>
                         </div>
                     </div>
-
-                    {/* Formulário
-                    <div className="lg:col-span-3">
-                        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
-                            <div className="grid md:grid-cols-2 gap-6 mb-6">
-                                <div>
-                                    <label className="block text-gray-300 text-sm font-medium mb-2">
-                                        <User size={16} className="inline mr-2" />
-                                        Nome Completo
-                                    </label>
-                                    <input 
-                                        type="text" 
-                                        name="name"
-                                        placeholder="Digite seu nome"
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                        className={`w-full p-4 bg-gray-700/50 text-white rounded-xl border ${
-                                            errors.name ? 'border-red-500' : 'border-gray-600'
-                                        } focus:border-red-400 focus:outline-none focus:ring-2 focus:ring-red-400/20 transition-all`}
-                                    />
-                                    {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
-                                </div>
-                                <div>
-                                    <label className="block text-gray-300 text-sm font-medium mb-2">
-                                        <AtSign size={16} className="inline mr-2" />
-                                        Email
-                                    </label>
-                                    <input 
-                                        type="email" 
-                                        name="email"
-                                        placeholder="seu@email.com"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        className={`w-full p-4 bg-gray-700/50 text-white rounded-xl border ${
-                                            errors.email ? 'border-red-500' : 'border-gray-600'
-                                        } focus:border-red-400 focus:outline-none focus:ring-2 focus:ring-red-400/20 transition-all`}
-                                    />
-                                    {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
-                                </div>
-                            </div>
-                            
-                            <div className="mb-6">
-                                <label className="block text-gray-300 text-sm font-medium mb-2">
-                                    <MessageCircle size={16} className="inline mr-2" />
-                                    Assunto
-                                </label>
-                                <input 
-                                    type="text" 
-                                    name="subject"
-                                    placeholder="Sobre o que você gostaria de falar?"
-                                    value={formData.subject}
-                                    onChange={handleChange}
-                                    className={`w-full p-4 bg-gray-700/50 text-white rounded-xl border ${
-                                        errors.subject ? 'border-red-500' : 'border-gray-600'
-                                    } focus:border-red-400 focus:outline-none focus:ring-2 focus:ring-red-400/20 transition-all`}
-                                />
-                                {errors.subject && <p className="text-red-400 text-sm mt-1">{errors.subject}</p>}
-                            </div>
-                            
-                            <div className="mb-8">
-                                <label className="block text-gray-300 text-sm font-medium mb-2">
-                                    <Mail size={16} className="inline mr-2" />
-                                    Mensagem
-                                </label>
-                                <textarea 
-                                    name="message"
-                                    placeholder="Conte-me sobre seu projeto ou ideia..."
-                                    rows="6"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    className={`w-full p-4 bg-gray-700/50 text-white rounded-xl border ${
-                                        errors.message ? 'border-red-500' : 'border-gray-600'
-                                    } focus:border-red-400 focus:outline-none focus:ring-2 focus:ring-red-400/20 transition-all resize-none`}
-                                />
-                                {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
-                                <div className="text-right text-gray-400 text-sm mt-1">
-                                    {formData.message.length} caracteres
-                                </div>
-                            </div>
-                            
-                            <button 
-                                type="button"
-                                onClick={handleSubmit}
-                                disabled={isSubmitting}
-                                className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 disabled:from-gray-600 disabled:to-gray-700 text-white py-4 rounded-xl font-semibold transition-all transform hover:scale-[1.02] disabled:scale-100 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
-                            >
-                                {isSubmitting ? (
-                                    <>
-                                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                                        <span>Enviando...</span>
-                                    </>
-                                ) : (
-                                    <>
-                                        <Send size={20} />
-                                        <span>Enviar Mensagem</span>
-                                    </>
-                                )}
-                            </button>
-                        </div>
-                    </div> */}
                 </div>
             </div>
         </section>
